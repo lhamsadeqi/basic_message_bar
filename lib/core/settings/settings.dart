@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 class Settings {
   static double _height = 60;
   static double _borderRadius = 15;
-  static EdgeInsets _boxPadding = EdgeInsets.all(7);
-  static EdgeInsets _boxMargin = EdgeInsets.all(10);
+  static EdgeInsets _boxPadding = const EdgeInsets.all(7);
+  static EdgeInsets _boxMargin = const EdgeInsets.all(10);
   static double _borderThickness = 1;
   static double _midPadding = 20;
   static double _fontSize = 14;

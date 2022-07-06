@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:message_bar/features/message_bar/message_bar.dart';
+import 'package:message_bar/features/message_bar/presentation/widgets/custom_message_widget.dart';
 import 'package:message_bar/features/message_bar/presentation/widgets/message_widget.dart';
 
 void main() {
@@ -104,21 +105,30 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           textDirection: TextDirection.rtl,
           children: <Widget>[
-            Directionality(
+            const Directionality(
+              textDirection: TextDirection.ltr,
+              child: CustomMessageWidget(
+                message: 'Youtube',
+                backgroundColor: Color.fromARGB(255, 245, 233, 235),
+                icon: Icons.play_arrow_rounded,
+                primaryColor: Color(0xFFE91E43),
+              ),
+            ),
+            const Directionality(
               textDirection: TextDirection.rtl,
               child: MessageWidget(
                   type: MessageType.SUCCESS,
                   message: 'خطایی در حین عملیات رخ داده است.'),
             ),
-            MessageWidget(
+            const MessageWidget(
                 type: MessageType.FAILED,
                 message:
                     'There was an error tying to fetch data.There was an error tying to fetch data.'),
-            MessageWidget(
+            const MessageWidget(
                 type: MessageType.WARNING,
                 message:
                     'There was an error tying to fetch data.There was an error tying to fetch data.There was an error tying to fetch data.'),
-            MessageWidget(
+            const MessageWidget(
                 type: MessageType.ALERT,
                 message: 'There was an error tying to fetch data.'),
             const Text(

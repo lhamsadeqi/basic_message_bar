@@ -26,7 +26,6 @@ class MessageWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(Settings().borderRadius),
       ),
       child: Row(
-        textDirection: Directionality.maybeOf(context),
         children: [
           Container(
             width: Settings().height -
@@ -36,7 +35,13 @@ class MessageWidget extends StatelessWidget {
             padding: const EdgeInsets.all(2),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
-              color: getColor(type),
+              color: getColor(type),boxShadow: [
+                  BoxShadow(offset: const Offset(0.0,5.0),
+                    color: getColor(type).withOpacity(0.2),
+                    blurRadius: 5,
+                    spreadRadius: 2,
+                  )
+                ],
             ),
             child: FittedBox(
               child: Icon(
@@ -59,12 +64,10 @@ class MessageWidget extends StatelessWidget {
               ),
             ),
           ),
-          Container(
-            child: IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.close,
-                  color: Settings().textColor.withOpacity(0.5)),
-            ),
+          IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.close,
+                color: Settings().textColor.withOpacity(0.5)),
           ),
         ],
       ),
