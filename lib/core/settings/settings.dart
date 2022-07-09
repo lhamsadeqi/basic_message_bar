@@ -7,6 +7,7 @@ class Settings {
   static EdgeInsets _boxPadding = const EdgeInsets.all(7);
   static EdgeInsets _boxMargin = const EdgeInsets.all(10);
   static double _borderThickness = 1;
+  static double _iconPadding = 2;
   static double _midPadding = 20;
   static double _fontSize = 14;
   static Color _textColor = Colors.black;
@@ -19,6 +20,7 @@ class Settings {
   double get borderThickness => _borderThickness;
   double get midPadding => _midPadding;
   double get fontSize => _fontSize;
+  double get iconPadding => _iconPadding;
   Color get textColor => _textColor;
   Duration get duration => _duration;
 
@@ -29,6 +31,7 @@ class Settings {
     EdgeInsets? boxMargin,
     double? borderThickness,
     double? midPadding,
+    double? iconPadding,
     double? fontSize,
     Color? textColor,
     Duration? duration,
@@ -60,6 +63,9 @@ class Settings {
     }
     if (duration != null) {
       _duration = duration;
+    }
+    if (iconPadding != null) {
+      _iconPadding = iconPadding;
     }
   }
 }

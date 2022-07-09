@@ -38,7 +38,7 @@ class CustomMessageWidget extends StatelessWidget {
                 (Settings().boxPadding.top + Settings().boxPadding.bottom),
             height: Settings().height -
                 (Settings().boxPadding.top + Settings().boxPadding.bottom),
-            padding: const EdgeInsets.all(2),
+            padding: EdgeInsets.all(Settings().iconPadding),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
               color: primaryColor,
