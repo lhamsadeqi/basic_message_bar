@@ -13,18 +13,19 @@ class CustomToastImpl implements ToastRepository<CustomMessageModel> {
   @override
   call(CustomMessageModel messageModel) {
     fToast.showToast(
-        child: CustomMessageWidget(
-          icon: messageModel.iconData,
-          primaryColor: messageModel.primaryColor,
-          backgroundColor: messageModel.backgroundColor,
-          message: messageModel.message,
-        ),
-        toastDuration: Settings().duration);
+      child: CustomMessageWidget(
+        icon: messageModel.iconData,
+        primaryColor: messageModel.primaryColor,
+        backgroundColor: messageModel.backgroundColor,
+        message: messageModel.message,
+      ),
+      toastDuration: Settings().duration,
+      gravity: ToastGravity.SNACKBAR,
+    );
   }
 
   @override
   setContext(BuildContext context1) {
     fToast.init(context1);
   }
-
 }

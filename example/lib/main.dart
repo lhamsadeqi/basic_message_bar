@@ -80,7 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     super.initState();
     MessageBar().init(context);
-    int i=0;
+    int i = 0;
     Timer.periodic(const Duration(seconds: 5), (t) {
       MessageBar().showMessage('خطایی در عملیات رخ داده است.',
           type: i % 4 == 0
@@ -115,7 +115,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
-        child: Column(
+        child: ListView(
           // Column is also a layout widget. It takes a list of children and
           // arranges them vertically. By default, it sizes itself to fit its
           // children horizontally, and tries to be as tall as its parent.
@@ -130,35 +130,9 @@ class _MyHomePageState extends State<MyHomePage> {
           // center the children vertically; the main axis here is the vertical
           // axis because Columns are vertical (the cross axis would be
           // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          textDirection: TextDirection.rtl,
+
           children: <Widget>[
-            const Directionality(
-              textDirection: TextDirection.ltr,
-              child: CustomMessageWidget(
-                message: 'Youtube',
-                backgroundColor: Color.fromARGB(255, 245, 233, 235),
-                icon: Icons.play_arrow_rounded,
-                primaryColor: Color(0xFFE91E43),
-              ),
-            ),
-            const Directionality(
-              textDirection: TextDirection.rtl,
-              child: MessageWidget(
-                  type: MessageType.SUCCESS,
-                  message: 'خطایی در حین عملیات رخ داده است.'),
-            ),
-            const MessageWidget(
-                type: MessageType.FAILED,
-                message:
-                    'There was an error tying to fetch data.There was an error tying to fetch data.'),
-            const MessageWidget(
-                type: MessageType.WARNING,
-                message:
-                    'There was an error tying to fetch data.There was an error tying to fetch data.There was an error tying to fetch data.'),
-            const MessageWidget(
-                type: MessageType.ALERT,
-                message: 'There was an error tying to fetch data.'),
+            TextField(),
             const Text(
               'You have pushed the button this many times:',
             ),

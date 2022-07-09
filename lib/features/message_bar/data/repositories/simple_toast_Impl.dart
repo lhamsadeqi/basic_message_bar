@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:message_bar/core/settings/settings.dart';
@@ -12,17 +13,17 @@ class SimpleToastImpl implements ToastRepository<MessageModel> {
   @override
   call(MessageModel messageModel) {
     fToast.showToast(
-        child: MessageWidget(
-          type: messageModel.messageType,
-          message: messageModel.message,
-        ),
-        toastDuration: Settings().duration);
+      child: MessageWidget(
+        type: messageModel.messageType,
+        message: messageModel.message,
+      ),
+      toastDuration: Settings().duration,
+      gravity: ToastGravity.SNACKBAR,
+    );
   }
 
   @override
   setContext(BuildContext context1) {
     fToast.init(context1);
   }
-
-
 }
