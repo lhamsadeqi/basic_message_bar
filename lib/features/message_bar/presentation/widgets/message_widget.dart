@@ -33,16 +33,18 @@ class MessageWidget extends StatelessWidget {
                 (Settings().boxPadding.top + Settings().boxPadding.bottom),
             height: Settings().height -
                 (Settings().boxPadding.top + Settings().boxPadding.bottom),
-            padding: const EdgeInsets.all(2),
+            padding: EdgeInsets.all(Settings().iconPadding),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
-              color: getColor(type),boxShadow: [
-                  BoxShadow(offset: const Offset(0.0,5.0),
-                    color: getColor(type).withOpacity(0.2),
-                    blurRadius: 5,
-                    spreadRadius: 2,
-                  )
-                ],
+              color: getColor(type),
+              boxShadow: [
+                BoxShadow(
+                  offset: const Offset(0.0, 5.0),
+                  color: getColor(type).withOpacity(0.2),
+                  blurRadius: 5,
+                  spreadRadius: 2,
+                )
+              ],
             ),
             child: FittedBox(
               child: Icon(
@@ -67,8 +69,8 @@ class MessageWidget extends StatelessWidget {
           ),
           IconButton(
             onPressed: () => MessageBar().closeToast(),
-            icon: Icon(Icons.close,
-                color: Settings().textColor.withOpacity(0.5)),
+            icon:
+                Icon(Icons.close, color: Settings().textColor.withOpacity(0.5)),
           ),
         ],
       ),
