@@ -5,6 +5,7 @@ class CustomMessageWidget extends StatelessWidget {
   final String message;
   final Color primaryColor, backgroundColor;
   final IconData icon;
+  
   const CustomMessageWidget({
     Key? key,
     required this.icon,
@@ -41,7 +42,7 @@ class CustomMessageWidget extends StatelessWidget {
               color: primaryColor,
               boxShadow: [
                 BoxShadow(
-                  offset: Offset(0.0, 5.0),
+                  offset: const Offset(0.0, 5.0),
                   color: primaryColor.withOpacity(0.2),
                   blurRadius: 5,
                   spreadRadius: 2,
