@@ -10,6 +10,7 @@ class Settings {
   static double _midPadding = 20;
   static double _fontSize = 14;
   static Color _textColor = Colors.black;
+  static Duration _duration = const Duration(seconds: 3);
 
   double get height => _height;
   double get borderRadius => _borderRadius;
@@ -19,6 +20,7 @@ class Settings {
   double get midPadding => _midPadding;
   double get fontSize => _fontSize;
   Color get textColor => _textColor;
+  Duration get duration => _duration;
 
   void setSettings({
     double? height,
@@ -29,6 +31,7 @@ class Settings {
     double? midPadding,
     double? fontSize,
     Color? textColor,
+    Duration? duration,
   }) {
     if (height != null) {
       _height = height;
@@ -54,6 +57,9 @@ class Settings {
     }
     if (textColor != null) {
       _textColor = textColor;
+    }
+    if (duration != null) {
+      _duration = duration;
     }
   }
 }

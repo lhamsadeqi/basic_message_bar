@@ -1,7 +1,10 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:message_bar/features/message_bar/message_bar.dart';
 import 'package:message_bar/features/message_bar/presentation/widgets/custom_message_widget.dart';
 import 'package:message_bar/features/message_bar/presentation/widgets/message_widget.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,6 +17,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      localizationsDelegates: const [
+        GlobalCupertinoLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
+      supportedLocales: const [
+        Locale("fa", "IR"),
+      ],
+      locale: const Locale("fa", "IR"),
       title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.
@@ -66,8 +78,24 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
+    MessageBar().init(context);
+    int i=0;
+    Timer.periodic(const Duration(seconds: 5), (t) {
+      MessageBar().showMessage('خطایی در عملیات رخ داده است.',
+          type: i % 4 == 0
+              ? MessageType.FAILED
+              : i % 4 == 1
+                  ? MessageType.ALERT
+                  : i % 4 == 2
+                      ? MessageType.WARNING
+                      : MessageType.SUCCESS);
+      // MessageBar().showCustomMessage('خطایی در عملیات رخ داده است.',
+      //     primaryColor: Colors.purple,
+      //     backgroundColor: Colors.purple.shade100,
+      //     icon: Icons.abc);
+      i++;
+    });
   }
 
   @override

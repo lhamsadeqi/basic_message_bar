@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:message_bar/core/settings/settings.dart';
+import 'package:message_bar/features/message_bar/domain/usecase/show_simple_toast.dart';
 import 'package:message_bar/features/message_bar/message_bar.dart';
 
 class MessageWidget extends StatelessWidget {
@@ -65,7 +66,7 @@ class MessageWidget extends StatelessWidget {
             ),
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () => MessageBar().closeToast(),
             icon: Icon(Icons.close,
                 color: Settings().textColor.withOpacity(0.5)),
           ),

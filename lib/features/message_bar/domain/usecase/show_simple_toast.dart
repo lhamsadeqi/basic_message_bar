@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:message_bar/features/message_bar/domain/entity/message_model.dart';
-import '../../../../core/usecases/usecase.dart';
-import '../repository/simple_toast.dart';
+import '../../../../core/usecases/show_usecase.dart';
+import '../repository/toast_repository.dart';
 
-class ShowSimpleToast implements UseCase<MessageModel> {
+class ShowSimpleToast implements ShowUseCase<MessageModel> {
   final ToastRepository toastRepository;
 
   ShowSimpleToast(this.toastRepository);
@@ -14,6 +14,8 @@ class ShowSimpleToast implements UseCase<MessageModel> {
 
   @override
   call(MessageModel entityModel) {
-    toastRepository.showToast(entityModel);
+    toastRepository(entityModel);
   }
+
+
 }

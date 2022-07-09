@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:message_bar/core/settings/settings.dart';
 
+import '../../message_bar.dart';
+
 class CustomMessageWidget extends StatelessWidget {
   final String message;
   final Color primaryColor, backgroundColor;
   final IconData icon;
-  
+
   const CustomMessageWidget({
     Key? key,
     required this.icon,
@@ -71,7 +73,7 @@ class CustomMessageWidget extends StatelessWidget {
             ),
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () => MessageBar().closeToast(),
             icon:
                 Icon(Icons.close, color: Settings().textColor.withOpacity(0.5)),
           ),
